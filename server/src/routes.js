@@ -1,29 +1,10 @@
-const UserController = require('./controllers/UserController')
+const UserControllers = require('./controllers/UserControllers')
+const UserController = require('./controllers/UserControllers')
 
-module.exports = (app) => {
-  /* RESFUL Api for users management */
-  // create user
-  app.post('/user',
-    UserController.create
-  )
-
-  // edit user, suspend, active
-  app.put('/user/:userId',
-    UserController.put
-  )
-
-  // delete user
-  app.delete('/user/:userId',
-    UserController.remove
-  )
-
-  // get user by id
-  app.get('/user/:userId',
-    UserController.show
-  )
-
-  // get all user
-  app.get('/users',
-    UserController.index    
-  )
+module.exports = (app) =>{
+    app.post('/user',UserControllers.create);
+    app.put('/user/:userId',UserControllers.put);
+    app.delete('./user/:userId',UserControllers.remove);
+    app.get('/user/:userId',UserControllers.show);
+    app.get('/users',UserControllers.index);
 }
